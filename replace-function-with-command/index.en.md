@@ -4,7 +4,7 @@
 
 This article looks for a way to reduce the complexity of a method. One of the common refactorings for this is [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring. The acticle shows a testable implementation of it using C# & it's ICommand interface in detail.
 
-To reduce the complexity of a method we need to solve the next tasks:
+To reduce the complexity of a method the next tasks needs to be solved:
 - Define the method complexity & it's code smells.
 - Describe known ways to reduce the methods complexity.
 - Create the testable implementation of the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring using the ICommand interface to reduce the method complexity.
@@ -645,13 +645,25 @@ Following the principle that everything should be as simple as possible, but not
 ```mermaid
 flowchart TD
     A[Refactor the complex method] --> B{The method is trivial and can be tested with trival data?};
-    B --> Yes --> C[Use way #0 or #1];
-    B --> No --> D[Use the way #3];
-    C --> G[Finish refactoring];
-    D --> E{Created Command can be reused in another class?};
-    E --> Yes --> F[Use way #2];
-    E --> No --> B;
-    F --> B;
+    B -- Yes --> C[Use way #0 or #1];
+    B -- No --> D[Use the way #3];
+    C ----> G[Finish refactoring];
+    D ----> E{Created Command can be reused in another class?};
+    E -- Yes --> F[Use way #2];
+    E -- No --> B;
+    F ----> B;
 ```
+
+## Conclusion
+
+The article solved the next tasks:
+- Defined the method complexity & it's code smells.
+- Described known ways to reduce the methods complexity.
+- Created the testable implementation of the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring using the ICommand interface to reduce the method complexity.
+- Defined the possible use cases for the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring for the C# stack.
+
+Also, an algorithm for refactoring a complex method has been proposed.
+
+The key abstraction [ICommandExecutor](replace-function-with-command\src\replace-function-with-command\ICommandExecutor.cs) that allows to make [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring testable & expandable has been proposed.
 
 All the souce code can be found in the [src](src) folder.
