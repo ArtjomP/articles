@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32210.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "replace-function-with-command", "replace-function-with-command\replace-function-with-command.csproj", "{1F80DDF0-DC3B-4B31-AAAD-6100414F3269}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "replace-function-with-command-test", "replace-function-with-command-test\replace-function-with-command-test.csproj", "{92A719B3-1960-4C72-8EF1-13FC4B8FFC1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F80DDF0-DC3B-4B31-AAAD-6100414F3269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F80DDF0-DC3B-4B31-AAAD-6100414F3269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F80DDF0-DC3B-4B31-AAAD-6100414F3269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F80DDF0-DC3B-4B31-AAAD-6100414F3269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A719B3-1960-4C72-8EF1-13FC4B8FFC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A719B3-1960-4C72-8EF1-13FC4B8FFC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A719B3-1960-4C72-8EF1-13FC4B8FFC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A719B3-1960-4C72-8EF1-13FC4B8FFC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09A53915-96C8-4146-933D-243B515BF110}
+	EndGlobalSection
+EndGlobal
