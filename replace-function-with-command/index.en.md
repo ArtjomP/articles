@@ -668,8 +668,6 @@ The key abstraction [ICommandExecutor](replace-function-with-command\src\replace
 
 Using ICommand with [Model-View-ViewModel Pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) is handful and allows to test & maintain ViewModels of any complexity.
 
-The **Func** and **Action** can be used also to solve the method complexity in the testable & expandable way.
-
-Expanding the **ICommandExecutor** to support **Task** & different **ICommand** implemenations will be proposed in the future articles.
+The **Func** and **Action** can be used also to solve the method complexity in the testable & expandable way. Expanding the **ICommandExecutor** to support **Task** & different **ICommand** implemenations will be proposed in the future articles.
 
 All the souce code can be found in the [src](src) folder.
