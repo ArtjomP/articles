@@ -645,11 +645,11 @@ Following the principle that everything should be as simple as possible, but not
 ```mermaid
 flowchart TD
     A[Refactor the complex method] --> B{The method is trivial and can be tested with trival data?};
-    B -- Yes --> C[Use way #0 or #1];
-    B -- No --> D[Use the way #3];
+    B -- Yes --> C[Use way #0 or #1 (Do nothing or simple data driven tests)];
+    B -- No --> D[Use the way #3 (Use ICommand)];
     C ----> G[Finish refactoring];
     D ----> E{Created Command can be reused in another class?};
-    E -- Yes --> F[Use way #2];
+    E -- Yes --> F[Use way #2 (Add more abstractions with DI)];
     E -- No --> B;
     F ----> B;
 ```
@@ -665,5 +665,7 @@ The article solved the next tasks:
 Also, an algorithm for refactoring a complex method has been proposed.
 
 The key abstraction [ICommandExecutor](replace-function-with-command\src\replace-function-with-command\ICommandExecutor.cs) that allows to make [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring testable & expandable has been proposed.
+
+Using ICommand with [Model-View-ViewModel Pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) is handful and allows to test & maintain ViewModels of any complexity.
 
 All the souce code can be found in the [src](src) folder.
