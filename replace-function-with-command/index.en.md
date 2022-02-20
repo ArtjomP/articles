@@ -644,7 +644,7 @@ Following the principle that everything should be as simple as possible, but not
 
 ```mermaid
 flowchart TD
-    A[Refactor the complex method] --> B{The method is trivial and can be tested with trival data?};
+    A[Refactor the complex method] --> B{The method is trivial and can be tested with trivial data?};
     B -- Yes --> C[Use way #0 or #1 (Do nothing or simple data driven tests)];
     B -- No --> D[Use the way #3 (Use ICommand)];
     C ----> G[Finish refactoring];
