@@ -4,21 +4,22 @@
 
 This article looks for a way to reduce the complexity of a method. One of the common refactorings for this is [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring. The acticle shows a testable implementation of it using C# & it's ICommand interface in detail.
 
-To reduce the complexity of a method the next tasks needs to be solved:
+To reduce the complexity of a method the next tasks need to be solved:
 - Define the method complexity & it's code smells.
-- Describe known ways to reduce the methods complexity.
-- Create the testable implementation of the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring using the ICommand interface to reduce the method complexity.
+- Describe known ways to reduce the method complexity.
+- Create a testable implementation of the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring using the ICommand interface to reduce the method complexity.
 - Define the possible use cases for the [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring for the C# stack.
 
 ## The method complexity & it's code smells
 
-The [SOLID](https://en.wikipedia.org/wiki/SOLID) principle says that every class should only one responsibility. And what about the methods? Sometimes (very frequently actually) a method needs to have more than one responsibility. And the method gets very entangled & chained with all of its responsibilities. It's getting hard to change not only the method but the whole class. The code smells of it are:
+The [SOLID](https://en.wikipedia.org/wiki/SOLID) principle says that every class should have only one responsibility. And what about the methods? Sometimes (very frequently actually) a method needs to have more than one responsibility. And the method gets very entangled & chained with all of its responsibilities. It's getting hard to change not only the method but the whole class. The code smells of it are:
 - Method calls more than one private or public method of the class.
 - More than one unit test fails when the method gets changed.
 - Method's unit tests has more than one Assert.
 - Unit tests use a private method to set the state in the unit testing class.
 
 For example [class Foo](src/replace-function-with-command/Foo.cs) needs to process (or send) some data only when the result is correct. This artical deals with the evolution of the **Foo** class by adding generation number to its name, for example, **Foo0**, **Foo1**... Initial **Foo0** looks like:
+
 ```cs
 public class Foo0
 {
@@ -105,17 +106,16 @@ What does the unit test test here? It tests particular data cases for Foo & Data
 2. Validate the Result.
 3. Call DataProcessor->Process Result only when the ResultIsCorrect is true.
 
-All the responsibilites need to be separetaed from each other & should be testable on it own.
-
+All the responsibilites need to be separetaed from each other & should be testable on its own.
 
 ## Known ways to solve the method complexity
+
 To separate the **Foo** class responsibilities & reduce the **ProcessData** complexity the next ways can be used:
 
 0. Do nothing.  
 1. Add more unit tests for testing all the class responsibilities and bind the unit tests to each other.
 2. Use the [Fundamental theorem of software engineering](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering) and add more abstractions.
 3. Replace Function with ICommand.
-
 
 ### 0. Do nothing
 
