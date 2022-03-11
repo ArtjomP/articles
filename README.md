@@ -9,3 +9,4 @@
 - Reusing VM across UI frameworks (XF, Maui, Avalonia, Blazor)
 - Using ssl.com codesigntool on Azure Pipelines
 - Using enum & converter to show UI depending of VM state
+- Enum localization
