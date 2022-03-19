@@ -11,3 +11,5 @@
 - Using enum & converter to show UI depending of VM state
 - Enum localization
 - Mayakovsky code style
+- Using Python libraries from C#
+- Nullability & ReactiveCommand
