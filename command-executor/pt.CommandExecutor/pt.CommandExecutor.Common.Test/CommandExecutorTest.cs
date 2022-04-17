@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 
 using System;
 using Xunit;
@@ -67,7 +67,7 @@ public class CommandExecutorTest
     {
         var expectedParameter = new Object();
         Object? actualParameter = null;
-        Action<Object?> action = o => actualParameter = o;
+        void action(Object? o) => actualParameter = o;
         var command = new ActionCommand(action);
 
         Target.Execute(command, expectedParameter);
@@ -80,7 +80,7 @@ public class CommandExecutorTest
     {
         var expectedParameter = Int32.MinValue;
         Object? actualParameter = null;
-        Action<Object?> action = o => actualParameter = o;
+        void action(Object? o) => actualParameter = o;
         var command = new ActionCommand(action);
 
         Target.Execute(command, expectedParameter);
@@ -108,11 +108,11 @@ public class CommandExecutorTest
     {
         var expectedParameter = new Object();
         Object? actualParameter = null;
-        Predicate<Object?> canExecute = o =>
+        Boolean canExecute(Object? o)
         {
             actualParameter = o;
             return true;
-        };
+        }
         var command = new ActionCommand(
            _ => { },
            canExecute);
@@ -127,11 +127,11 @@ public class CommandExecutorTest
     {
         var expectedParameter = Int32.MinValue;
         Object? actualParameter = null;
-        Predicate<Object?> canExecute = o =>
+        Boolean canExecute(Object? o)
         {
             actualParameter = o;
             return true;
-        };
+        }
         var command = new ActionCommand(
            _ => { },
            canExecute);
