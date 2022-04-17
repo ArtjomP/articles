@@ -95,8 +95,8 @@ public class CommandExecutorTest
         Boolean expectedCanExecute)
     {
         var command = new ActionCommand(
-            o => { },
-            o => expectedCanExecute);
+            _ => { },
+            _ => expectedCanExecute);
 
         var actual = Target.CanExecute(command);
 
