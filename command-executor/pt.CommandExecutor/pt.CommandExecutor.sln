@@ -12,11 +12,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{1FC506
 		build\GitHub\pipeline.yml = build\GitHub\pipeline.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pt.CommandExecutor.Common.Test", "pt.CommandExecutor.Common.Test\pt.CommandExecutor.Common.Test.csproj", "{9FCBFA0F-0336-4853-B5FD-63ECB6D2AE1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pt.CommandExecutor.Common.Test", "pt.CommandExecutor.Common.Test\pt.CommandExecutor.Common.Test.csproj", "{9FCBFA0F-0336-4853-B5FD-63ECB6D2AE1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0F6D51F6-E0ED-4BC4-B1EA-34A721570565}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDevOps", "AzureDevOps", "{3DCB1B5D-4FAB-4027-A701-B33F8ACDEBFD}"
+	ProjectSection(SolutionItems) = preProject
+		pipeline.yml = pipeline.yml
 	EndProjectSection
 EndProject
 Global
@@ -39,6 +44,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1FC50658-2DA9-4E65-BF25-90B2E2B4A6D1} = {6D56DA0F-155C-4107-9269-7EA0682EB792}
+		{3DCB1B5D-4FAB-4027-A701-B33F8ACDEBFD} = {6D56DA0F-155C-4107-9269-7EA0682EB792}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {31942BE7-B4B7-465C-B1E3-AE6D6B33BD6A}
