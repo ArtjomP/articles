@@ -72,9 +72,9 @@ stages:
       inputs:
         command: test
         projects: '**/command-executor/pt.CommandExecutor/*Test*/*.csproj'
-        arguments: '--configuration $(buildConfiguration) --collect "Code coverage"' 
+        arguments: '--configuration $(CofigurationToBuild) --collect "Code coverage"' 
 
-    - script: dotnet test <test-project> --logger trx --collect "Code coverage"
+    - script: dotnet test $(Build.SourcesDirectory)/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common.Test/pt.CommandExecutor.Common.Test.csproj  --logger trx --collect "Code coverage"
     - task: PublishTestResults@2
       inputs:
         testRunner: VSTest
