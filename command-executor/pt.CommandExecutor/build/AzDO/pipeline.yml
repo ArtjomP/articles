@@ -32,7 +32,6 @@ stages:
       enabled: false
     
     - powershell: |
-        Get-ChildItem -Path $(Build.SourcesDirectory) -Recurse -Directory -Force -ErrorAction SilentlyContinue | Select-Object FullName
         $projFile="$(Build.SourcesDirectory)" + "\command-executor\pt.CommandExecutor\$(ProjectName)\$(ProjectName).csproj"
         Write-Host $projFile
         $version=(Select-String -Path $projFile -Pattern "<Version>(\d\.\d+)</Version>").Matches.Groups[1].Value
@@ -61,11 +60,11 @@ stages:
     - task: NuGetCommand@2
       displayName: 'NuGet restore'
       inputs:
-        restoreSolution: '**\command-executor\pt.CommandExecutor.sln'
+        restoreSolution: '**\command-executor\pt.CommandExecutor\pt.CommandExecutor.sln'
 
     - task: VSBuild@1
       inputs:
-        solution: '**\command-executor\pt.CommandExecutor.sln'
+        solution: '**\command-executor\pt.CommandExecutor\pt.CommandExecutor.sln'
         platform: '$(PlatformToBuild)'
         configuration: '$(CofigurationToBuild)'
 
