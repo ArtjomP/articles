@@ -36,7 +36,7 @@ stages:
         $projFile="$(Build.SourcesDirectory)" + "\command-executor\pt.CommandExecutor\$(ProjectName)\$(ProjectName).csproj"
         Write-Host $projFile
         $version=(Select-String -Path $projFile -Pattern "<Version>(\d\.\d+)</Version>").Matches.Groups[1].Value
-        $version=$version + ".$(Date:yyyyMMdd)"
+        $version=$version + ".$(Build.BuildId)"
         $versionNuget=$version
         if ( "$(Build.SourceBranchName)" -ne "master" )
         {
