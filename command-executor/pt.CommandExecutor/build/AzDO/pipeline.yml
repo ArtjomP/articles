@@ -67,16 +67,18 @@ stages:
         solution: '**\command-executor\pt.CommandExecutor\pt.CommandExecutor.sln'
         platform: '$(PlatformToBuild)'
         configuration: '$(CofigurationToBuild)'
-
-    - task: VSTest@2
+        
+    - task: DotNetCoreCLI@2
       inputs:
-        testSelector: 'testAssemblies'
-        testAssemblyVer2: |
-          **\command-executor\**\*test*.dll
-          !**\*TestAdapter.dll
-          !**\obj\**
-        searchFolder: '$(System.DefaultWorkingDirectory)'
-        uiTests: false
+        command: test
+        projects: '**/command-executor/pt.CommandExecutor/*Test*/*.csproj'
+        arguments: '--configuration $(buildConfiguration) --collect "Code coverage"' 
+
+    - script: dotnet test <test-project> --logger trx --collect "Code coverage"
+    - task: PublishTestResults@2
+      inputs:
+        testRunner: VSTest
+        testResultsFiles: '**/*.trx'
 
     - task: CopyPublishBuildArtifacts@1
       inputs:
