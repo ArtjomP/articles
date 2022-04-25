@@ -19,20 +19,20 @@ stages:
     steps:
     - bash: |
         set -x
-        ver=$(grep "<Version>.*</Version>" $(Build.SourcesDirectory)/$(ProjectName)/$(ProjectName).csproj | grep -oP "\d\.\d+\.\d+")
+        ver=$(grep "<Version>.*</Version>" $(Build.SourcesDirectory)/command-executor/$(ProjectName)/$(ProjectName).csproj | grep -oP "\d\.\d+\.\d+")
         echo "version: $ver"
         ver="${ver}.$(Build.BuildId)"
         if [ "$(Build.SourceBranchName)" != "master" ]; then
           ver="$ver-Beta"
         fi
         echo "version1: $ver"
-        sed -i "s|<Version>.*</Version>|<Version>$ver</Version>|g" $(Build.SourcesDirectory)/$(ProjectName)/$(ProjectName).csproj
+        sed -i "s|<Version>.*</Version>|<Version>$ver</Version>|g" $(Build.SourcesDirectory)/command-executor/$(ProjectName)/$(ProjectName).csproj
         echo "##vso[task.setvariable variable=NugetPackageVersion;isOutput=true]${ver}"
       displayName: 'Update $(PrjectName) version'
       enabled: false
     
     - powershell: |
-        $projFile="$(Build.SourcesDirectory)" + "\$(ProjectName)\$(ProjectName).csproj"
+        $projFile="$(Build.SourcesDirectory)" + "command-executor\$(ProjectName)\$(ProjectName).csproj"
         $version=(Select-String -Path $projFile -Pattern "<Version>(\d\.\d+)</Version>").Matches.Groups[1].Value
         $version=$version + ".$(Date:yyyyMMdd)"
         $versionNuget=$version
@@ -59,11 +59,11 @@ stages:
     - task: NuGetCommand@2
       displayName: 'NuGet restore'
       inputs:
-        restoreSolution: '**\*.sln'
+        restoreSolution: '**\command-executor\pt.CommandExecutor.sln'
 
     - task: VSBuild@1
       inputs:
-        solution: '**\*.sln'
+        solution: '**\command-executor\pt.CommandExecutor.sln'
         platform: '$(PlatformToBuild)'
         configuration: '$(CofigurationToBuild)'
 
@@ -71,7 +71,7 @@ stages:
       inputs:
         testSelector: 'testAssemblies'
         testAssemblyVer2: |
-          **\*test*.dll
+          **\command-executor\**\*test*.dll
           !**\*TestAdapter.dll
           !**\obj\**
         searchFolder: '$(System.DefaultWorkingDirectory)'
@@ -79,7 +79,7 @@ stages:
 
     - task: CopyPublishBuildArtifacts@1
       inputs:
-        Contents: '**/*.nupkg'
+        Contents: '**/command-executor/**/*.nupkg'
         ArtifactName: 'drop'
         ArtifactType: 'Container'
 
@@ -98,7 +98,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-            patterns: '**/*.nupkg'
+            patterns: '**/command-executor/**/*.nupkg'
             name: DownloadNugetPackage
 
           - task: NuGetToolInstaller@1
