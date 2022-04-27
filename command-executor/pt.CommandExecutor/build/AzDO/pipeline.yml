@@ -14,8 +14,6 @@ stages:
   - job: building
     pool:
       vmImage: 'windows-latest'
-    variables:
-    - group: Sharing
     steps:
     - bash: |
         set -x
