@@ -75,11 +75,17 @@ stages:
         testRunner: VSTest
         testResultsFiles: '**/*.trx'
 
+    - task: CopyFiles@2
+      inputs:
+        sourceFolder: $(Build.SourcesDirectory)/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common
+        contents: '**/Release/**/*.nupkg' 
+        targetFolder: '$(Build.ArtifactStagingDirectory)'
+        flattenFolders: true 
+
     - task: PublishBuildArtifacts@1
       inputs:
         pathToPublish: '$(Build.ArtifactStagingDirectory)' 
         artifactName: 'drop' 
-        fileCopyOptions: '**/command-executor/**/Release/**/*.nupkg'
 
 - stage: publishing
   jobs:
