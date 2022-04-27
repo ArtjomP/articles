@@ -80,7 +80,7 @@ stages:
 
     - task: CopyPublishBuildArtifacts@1
       inputs:
-        Contents: '**/command-executor/**Release/*.nupkg'
+        Contents: '**/command-executor/**/Release/**/*.nupkg'
         ArtifactName: 'drop'
         ArtifactType: 'Container'
 
