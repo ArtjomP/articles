@@ -6,6 +6,11 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <Version>1.0</Version>
+
+    <PackageId>pt.CommandExecutor</PackageId>
+    <Authors>ArtjomP</Authors>
+    <Company>Panteam</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
