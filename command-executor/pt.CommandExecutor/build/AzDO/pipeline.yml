@@ -75,11 +75,11 @@ stages:
         testRunner: VSTest
         testResultsFiles: '**/*.trx'
 
-    - task: CopyPublishBuildArtifacts@1
+    - task: PublishBuildArtifacts@1
       inputs:
-        Contents: '**/command-executor/**/Release/**/*.nupkg'
-        ArtifactName: 'drop'
-        ArtifactType: 'Container'
+        pathToPublish: '$(Build.ArtifactStagingDirectory)' 
+        artifactName: 'drop' 
+        fileCopyOptions: '**/command-executor/**/Release/**/*.nupkg'
 
 - stage: publishing
   jobs:
@@ -95,7 +95,7 @@ stages:
           steps:
           - download: current
             artifact: drop
-            patterns: '**/command-executor/**/*.nupkg'
+            patterns: '**/*.nupkg'
             name: DownloadNugetPackage
 
           - task: NuGetToolInstaller@1
@@ -104,7 +104,6 @@ stages:
             inputs:
               targetType: 'inline'
               script: |
-                Set-PSDebug -Trace 1
                 $files=(Get-ChildItem -Recurse -Force $(Pipeline.Workspace) -ErrorAction SilentlyContinue | Where-Object { ($_.PSIsContainer -eq $false) -and  ( $_.Name -like "*.nupkg*") })
                 foreach ($file in $files)
                 {
