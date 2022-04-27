@@ -1,8 +1,5 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)_$(Build.BuildId)
 
-trigger:
-- master
-
 variables:
   PlatformToBuild: 'Any CPU'
   CofigurationToBuild: Release
