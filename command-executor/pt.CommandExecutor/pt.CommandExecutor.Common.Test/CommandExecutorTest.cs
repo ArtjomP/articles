@@ -12,43 +12,55 @@ public class CommandExecutorTest
     [Fact]
     public void Execute_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.Execute(null));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
     public void ExecuteWithParameter_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.Execute(null, new Object()));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
     public void ExecuteWithParameterOfT_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.Execute(null, Int32.MinValue));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
     public void CanExecute_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.CanExecute(null));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
     public void CanExecuteWithParameter_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.Execute(null, new Object()));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
     public void CanExecuteWithParameterOfT_CommandNull_ThrowsArgumentNullExecption()
     {
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         Assert.Throws<ArgumentNullException>(
             () => Target.Execute(null, Int32.MinValue));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 
     [Fact]
