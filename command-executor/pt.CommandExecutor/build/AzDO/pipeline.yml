@@ -12,7 +12,7 @@ stages:
       vmImage: 'windows-latest'
     steps:
     - powershell: |
-        $files=(Get-ChildItem -Recurse -Force $(Build.SourcesDirectory) | Where-Object { ($_.PSIsContainer -eq $false) -and  ( $_.Name -notlike "*Test.csproj*") })
+        $files=(Get-ChildItem -Recurse -Force $(Build.SourcesDirectory) | Where-Object { ($_.PSIsContainer -eq $false) -and ($_.Name -like "*.csproj") -and  ($_.Name -notlike "*Test.csproj*") })
         foreach ($file in $files)
         {
           $projFile = $file.FullName
@@ -35,10 +35,9 @@ stages:
           $filecontent = Get-Content($projFile)
           Write-Host $filecontent
           echo "##vso[task.setvariable variable=NugetPackageVersion;isOutput=true]$versionNuget"
-        }
-        
+        }        
       name: UpdateVersion
-      displayName: 'Update $(PrjectName) version'
+      displayName: 'Update version'
       
     - task: NuGetToolInstaller@1
     
