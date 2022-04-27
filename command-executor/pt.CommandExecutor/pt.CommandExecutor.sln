@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzDO", "AzDO", "{3DCB1B5D-4
 		pipeline.yml = pipeline.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pt.CommandExecutor.ReactiveUI", "pt.CommandExecutor.ReactiveUI\pt.CommandExecutor.ReactiveUI.csproj", "{29134053-AFF8-4BA5-B777-955E321CD261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{9FCBFA0F-0336-4853-B5FD-63ECB6D2AE1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FCBFA0F-0336-4853-B5FD-63ECB6D2AE1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FCBFA0F-0336-4853-B5FD-63ECB6D2AE1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29134053-AFF8-4BA5-B777-955E321CD261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29134053-AFF8-4BA5-B777-955E321CD261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29134053-AFF8-4BA5-B777-955E321CD261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29134053-AFF8-4BA5-B777-955E321CD261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

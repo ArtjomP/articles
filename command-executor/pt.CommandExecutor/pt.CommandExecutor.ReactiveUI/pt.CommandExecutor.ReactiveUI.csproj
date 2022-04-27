@@ -14,4 +14,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="pt.CommandExecutor.Common" Version="1.0.4938-Beta" />
+    <PackageReference Include="ReactiveUI" Version="18.0.7" />
+  </ItemGroup>
+
 </Project>
