@@ -82,7 +82,7 @@ stages:
 
     - task: CopyPublishBuildArtifacts@1
       inputs:
-        Contents: '**/command-executor/**/*.nupkg'
+        Contents: '**/command-executor/**Release/*.nupkg'
         ArtifactName: 'drop'
         ArtifactType: 'Container'
 
@@ -90,8 +90,7 @@ stages:
   jobs:
   - deployment: nuget
     variables:
-    - group: Creds
-    - group: Sharing
+    - group: pt-commandexecutor
     environment: nuget-org
     pool:
       vmImage: 'windows-latest'

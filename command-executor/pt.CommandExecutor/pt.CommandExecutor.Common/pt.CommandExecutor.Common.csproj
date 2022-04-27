@@ -7,10 +7,12 @@
     <LangVersion>latest</LangVersion>
     <Version>1.0</Version>
 
-    <PackageId>pt.CommandExecutor</PackageId>
+    <PackageId>pt.CommandExecutor.Common</PackageId>
     <Authors>ArtjomP</Authors>
     <Company>Panteam</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/ArtjomP/articles/tree/main/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
