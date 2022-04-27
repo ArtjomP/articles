@@ -3,7 +3,6 @@ name: $(Date:yyyyMMdd)$(Rev:.r)_$(Build.BuildId)
 variables:
   PlatformToBuild: 'Any CPU'
   CofigurationToBuild: Release
-  ProjectName: 'pt.CommandExecutor.Common'
 
 stages:
 - stage: building
@@ -12,22 +11,8 @@ stages:
     pool:
       vmImage: 'windows-latest'
     steps:
-    - bash: |
-        set -x
-        ver=$(grep "<Version>.*</Version>" $(Build.SourcesDirectory)/command-executor/pt.CommandExecutor/$(ProjectName)/$(ProjectName).csproj | grep -oP "\d\.\d+\.\d+")
-        echo "version: $ver"
-        ver="${ver}.$(Build.BuildId)"
-        if [ "$(Build.SourceBranchName)" != "master" ]; then
-          ver="$ver-pre"
-        fi
-        echo "version1: $ver"
-        sed -i "s|<Version>.*</Version>|<Version>$ver</Version>|g" $(Build.SourcesDirectory)/command-executor/pt.CommandExecutor/$(ProjectName)/$(ProjectName).csproj
-        echo "##vso[task.setvariable variable=NugetPackageVersion;isOutput=true]${ver}"
-      displayName: 'Update $(PrjectName) version'
-      enabled: false
-    
     - powershell: |
-        $files=(Get-ChildItem -Recurse -Force $(Pipeline.Workspace) -ErrorAction SilentlyContinue | Where-Object { ($_.PSIsContainer -eq $false) -and  ( $_.Name -notlike "*Test.csproj*") })
+        $files=(Get-ChildItem -Recurse -Force $(Build.SourcesDirectory) | Where-Object { ($_.PSIsContainer -eq $false) -and  ( $_.Name -notlike "*Test.csproj*") })
         foreach ($file in $files)
         {
           $projFile = $file.FullName
@@ -68,12 +53,6 @@ stages:
         platform: '$(PlatformToBuild)'
         configuration: '$(CofigurationToBuild)'
         
-    - task: DotNetCoreCLI@2
-      inputs:
-        command: test
-        projects: '**/command-executor/pt.CommandExecutor/*Test*/*.csproj'
-        arguments: '--configuration $(CofigurationToBuild) --collect "Code coverage"' 
-
     - script: dotnet test $(Build.SourcesDirectory)/command-executor/pt.CommandExecutor/**/**.Test.csproj  --logger trx --collect "Code coverage"
     
     - task: PublishTestResults@2
