@@ -114,5 +114,5 @@ stages:
                     Write-Host $file.FullName
                     $fileFullName=$file.FullName
                     Write-Host $fileFullName
-                    dotnet nuget push $fileFullName -k $(nuget.apikey) -s https://api.nuget.org/v3/index.json
+                    dotnet nuget push $fileFullName -k $(nuget.apikey.pt-commandexecutor-common) -s https://api.nuget.org/v3/index.json
                 }
