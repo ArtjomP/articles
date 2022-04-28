@@ -1,5 +1,11 @@
 name: $(Date:yyyyMMdd)$(Rev:.r)_$(Build.BuildId)
 
+trigger:
+  batch: true
+  paths:
+    include:
+    - /command-executor/pt.CommandExecutor
+
 variables:
   PlatformToBuild: 'Any CPU'
   CofigurationToBuild: Release

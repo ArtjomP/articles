@@ -20,7 +20,7 @@ This library allows to run ReactiveUI commands in a testable way:
 executor.Execute(command)
 Read more from here: https://github.com/ArtjomP/articles/blob/command-executor/command-executor/index.en.md
     </Description>
-    <PackageTags>Command;Command Executor;ReactiveCommand;</PackageTags>
+    <PackageTags>Command;Executor;ReactiveCommand;</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
