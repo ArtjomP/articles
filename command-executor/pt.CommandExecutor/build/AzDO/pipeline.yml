@@ -20,10 +20,10 @@ stages:
           $version=(Select-String -Path $projFile -Pattern "<Version>(\d\.\d+)</Version>").Matches.Groups[1].Value
           $version=$version + ".$(Build.BuildId)"
           $versionNuget=$version
-          #if ( "$(Build.SourceBranchName)" -ne "master" )
-          #{
-          #  $versionNuget=$versionNuget + "-pre"
-          #}
+          if ( "$(Build.SourceBranchName)" -ne "master" )
+          {
+            $versionNuget=$versionNuget + "-pre"
+          }
           $nugetVersionRegex="<Version>.*</Version>"
           $nugetVersion="<Version>$versionNuget</Version>"
           $assemblyVersionRegex="<AssemblyVersion>.*</AssemblyVersion>"
