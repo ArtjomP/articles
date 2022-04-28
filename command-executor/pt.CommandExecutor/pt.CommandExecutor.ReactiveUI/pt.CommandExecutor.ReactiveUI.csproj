@@ -15,7 +15,13 @@
     <PackageIconUrl>https://cdn0.iconfinder.com/data/icons/media-webby/60/001_-_play-1024.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/ArtjomP/articles/tree/main/command-executor/pt.CommandExecutor/pt.CommandExecutor.ReactiveUI</RepositoryUrl>
     <Title>Run ReactiveCommand sync/async in a testable way</Title>
-    <Description>https://github.com/ArtjomP/articles/blob/command-executor/command-executor/index.en.md</Description>
+    <Description>
+This library allows to run ReactiveUI commands in a testable way:
+```cs
+executor.Execute(ICommand command)
+```
+Read more from here: https://github.com/ArtjomP/articles/blob/command-executor/command-executor/index.en.md
+    </Description>
     <PackageTags>Command;Command Executor;ReactiveCommand;</PackageTags>
   </PropertyGroup>
 
