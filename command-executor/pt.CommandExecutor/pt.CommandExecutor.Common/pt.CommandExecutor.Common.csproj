@@ -12,6 +12,7 @@
     <Company>Panteam</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIconUrl>https://cdn0.iconfinder.com/data/icons/media-retro/60/001_-_play-1024.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/ArtjomP/articles/tree/main/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common</RepositoryUrl>
     <Title>Run commands in a testable way</Title>
     <Description>Allows to run commands in a testable way: executor.Execute(ICommand command). Read more from here: https://github.com/ArtjomP/articles/blob/main/replace-function-with-command/index.en.md</Description>
