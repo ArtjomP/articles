@@ -12,7 +12,7 @@
     <Company>Panteam</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIconUrl>https://cdn0.iconfinder.com/data/icons/media-webby/60/001_-_play-1024.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/ArtjomP/articles/tree/main/command-executor/pt.CommandExecutor/pt.CommandExecutor.ReactiveUI</RepositoryUrl>
     <Title>Run ReactiveCommand sync/async in a testable way</Title>
     <Description>
@@ -29,5 +29,10 @@ Read more from here: https://github.com/ArtjomP/articles/blob/command-executor/c
     <PackageReference Include="pt.CommandExecutor.Common" Version="1.0.4959-pre" />
     <PackageReference Include="ReactiveUI" Version="1.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+  
 
 </Project>

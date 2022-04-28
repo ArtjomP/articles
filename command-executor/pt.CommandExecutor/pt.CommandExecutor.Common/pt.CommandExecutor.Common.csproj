@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -12,7 +12,7 @@
     <Company>Panteam</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIconUrl>https://cdn0.iconfinder.com/data/icons/media-retro/60/001_-_play-1024.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/ArtjomP/articles/tree/main/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common</RepositoryUrl>
     <Title>Run commands in a testable way</Title>
     <Description>
@@ -27,6 +27,11 @@ Read more from here: https://github.com/ArtjomP/articles/blob/command-executor/c
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Diagnostics" Version="7.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--https://www.iconfinder.com/icons/2949852/audio_media_media_player_music_play_video_player_icon-->
+    <None Include="Images\icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
