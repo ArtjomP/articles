@@ -1,6 +1,6 @@
 # Executing ICommand in a testable way
 
-[ICommand](https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand?view=net-5.0) is the key interface used in C# for implementing [Command pattern](https://en.wikipedia.org/wiki/Command_pattern). This pattern can be helpful not only for UI frameworks but for [replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring. Using replace Function with Command for solving method
+[ICommand](https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand?view=net-5.0) is the key interface used in C# for implementing [Command pattern](https://en.wikipedia.org/wiki/Command_pattern). This pattern can be helpful not only for UI frameworks but for [replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring. Using the replace Function with Command refactoring for solving method
 complexity in a testable way described [here](/replace-function-with-command/index.en.md). The article introduced abstraction [ICommandExecutor](/replace-function-with-command\src\replace-function-with-command\ICommandExecutor.cs) that allows to make [Replace Function with Command](https://refactoring.com/catalog/replaceFunctionWithCommand.html) refactoring testable & expandable.
 
 This article develops the [ICommandExecutor](/replace-function-with-command\src\replace-function-with-command\ICommandExecutor.cs) makes two implementations of it [CommandExecutor](/command-executor/pt.CommandExecutor/pt.CommandExecutor.Common/CommandExecutor.cs) and [ReactiveUICommandExecutor](//command-executor/pt.CommandExecutor/pt.CommandExecutor.ReactiveUI/ReactiveUICommandExecutor.cs) for basic commands and
@@ -18,7 +18,7 @@ Build pipeline:
 
 ## Quick start
 
-`Install-Package pt.CommandExecutor.Common -Version 1.0.4954-pre`
+`Install-Package pt.CommandExecutor.Common`
 
 **In code**:
 ```cs
