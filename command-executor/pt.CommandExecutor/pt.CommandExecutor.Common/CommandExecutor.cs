@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System.Windows.Input;
+using Microsoft.Toolkit.Diagnostics;
 
 namespace pt.CommandExecutor.Common;
 
@@ -8,16 +9,14 @@ public class CommandExecutor : ICommandExecutor
 {
     public void Execute(ICommand command)
     {
-        _ = command ?? 
-            throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         command.Execute(null);
     }
 
     public Boolean CanExecute(ICommand command)
     {
-        _ = command ??
-           throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         return command.CanExecute(null);
     }
@@ -26,8 +25,7 @@ public class CommandExecutor : ICommandExecutor
         ICommand command, 
         Object? commandParameter)
     {
-        _ = command ??
-            throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         command.Execute(commandParameter);
     }
@@ -36,8 +34,7 @@ public class CommandExecutor : ICommandExecutor
         ICommand command, 
         Object? commandParameter)
     {
-        _ = command ??
-            throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         return command.CanExecute(commandParameter);
     }
@@ -46,8 +43,7 @@ public class CommandExecutor : ICommandExecutor
         ICommand command,
         T commandParameter)
     {
-        _ = command ??
-            throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         command.Execute(commandParameter);
     }
@@ -56,8 +52,7 @@ public class CommandExecutor : ICommandExecutor
         ICommand command,
         T commandParameter)
     {
-        _ = command ??
-            throw new ArgumentNullException(nameof(command));
+        Guard.IsNotNull(command, nameof(command));
 
         return command.CanExecute(commandParameter);
     }
