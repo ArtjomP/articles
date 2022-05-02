@@ -24,7 +24,7 @@ Read more from here: https://github.com/ArtjomP/articles/blob/command-executor/c
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="pt.CommandExecutor.Common" Version="1.0.4962" />
+    <PackageReference Include="pt.CommandExecutor.Common" Version="1.0.4979" />
     <PackageReference Include="ReactiveUI" Version="1.0.0" />
   </ItemGroup>
 

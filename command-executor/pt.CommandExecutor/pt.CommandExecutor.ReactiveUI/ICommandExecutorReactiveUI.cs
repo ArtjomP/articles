@@ -6,7 +6,7 @@ using ReactiveUI;
 
 namespace pt.CommandExecutor.ReactiveUI;
 
-public interface IReactiveUICommandExecutor 
+public interface ICommandExecutorReactiveUI
     : ICommandExecutor
 {
     Task ExecuteAsync(
