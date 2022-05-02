@@ -10,9 +10,9 @@ using Xunit;
 
 namespace pt.CommandExecutor.ReactiveUI.Test;
 
-public class ReactiveUICommandExecutorTest
+public class ICommandExecutorReactiveUITest
 {
-    private ReactiveUICommandExecutor Target { get; } = new ();
+    private CommandExecutorReactiveUI Target { get; } = new ();
 
     [Fact]
     public void ExecuteAsync_CommandNull_ThrowsArgumentNullExecption()

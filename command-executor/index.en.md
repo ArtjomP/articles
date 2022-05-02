@@ -16,7 +16,7 @@ Build pipeline:
 
 [![Build Status](https://dev.azure.com/pteam/Public/_apis/build/status/pt.CommandExecutor?branchName=main)](https://dev.azure.com/pteam/Public/_build?definitionId=39)
 
-## Quick start
+## Quick start pt.CommandExecutor.Common
 
 `
 Install-Package pt.CommandExecutor.Common
@@ -51,6 +51,49 @@ public class Foo
 public void Method_Call_ExecutesCommand()
 {
     var commandExector = new Mock<ICommandExecutor>();
+    var target = new Foo(commandExecutor.Object);
+    
+    target.Method();
+
+    commandExecutor.Verify(o => o.Execute(target.Command));
+}
+```
+
+## Quick start pt.CommandExecutor.ReactiveUI
+
+`
+Install-Package pt.CommandExecutor.ReactiveUI
+`
+
+**In code**:
+```cs
+public class Foo
+{
+    public ICommand Command 
+    {
+        get; 
+    } = ReactiveCommand.Create(() => Console.WriteLine("Hello world"));
+    
+    private ICommandExecutorReactiveUI CommandExecutor { get; }
+
+    public Foo(ICommandExecutorReactiveUI commandExecutor)
+    {
+        CommandExecutor = commandExecutor;
+    }
+
+    public void Method()
+    {
+        commandExecutor.Execute(command);
+    }
+}
+```
+
+**Unit test**:
+```cs
+[Fact]
+public void Method_Call_ExecutesCommand()
+{
+    var commandExector = new Mock<ICommandExecutorReactiveUI>();
     var target = new Foo(commandExecutor.Object);
     
     target.Method();

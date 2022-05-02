@@ -8,9 +8,9 @@ using ReactiveUI;
 
 namespace pt.CommandExecutor.ReactiveUI;
 
-public class ReactiveUICommandExecutor
+public class CommandExecutorReactiveUI
     : Common.CommandExecutor
-    , IReactiveUICommandExecutor
+    , ICommandExecutorReactiveUI
 {
     public async Task ExecuteAsync(
         ReactiveCommand<Unit, Unit> command)
